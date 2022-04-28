@@ -1,16 +1,22 @@
 function convertir_a_decimal(numero, base){
+    var DIGITOS = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+
     numero = numero.split('').reverse().join('');
-    console.log(numero);
+    
     var numero_decimal = 0;
     var longitud = numero.length;
     for(var i = 0; i < longitud; i++){
 
-        if(parseInt(numero[i]) >= base){
+        let temp = DIGITOS.indexOf(numero[i]);
+
+        console.log(temp);
+
+        if(parseInt(temp) >= base){
             alert("La base es incorrecta");
             return false;   
         }
 
-        numero_decimal += parseInt(numero[i]) * Math.pow(base, i);
+        numero_decimal += parseInt(temp) * Math.pow(base, i);
     }
     return numero_decimal;
 
